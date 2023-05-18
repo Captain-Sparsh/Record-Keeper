@@ -35,7 +35,12 @@ function App() {
 
   }
 
-  
+  const enterkey = (event)=>{
+
+    if(event.key ==="Enter")
+      addData();
+  }
+
   return (
     <div className="App">
       <Header />
@@ -43,8 +48,8 @@ function App() {
       {/* FORM */}
       <div className="form">
         <Stack direction="row" spacing={3}>
-          <TextField id="outlined-basic" label="Name" variant="outlined" value={name} onChange={(event) => setName(event.target.value)}  />
-          <TextField id="outlined-basic" label="Email" variant="outlined" value={email} onChange={(event) => setEmail(event.target.value)} />
+          <TextField id="outlined-basic" label="Name" variant="outlined" value={name} onChange={(event) => setName(event.target.value)} onKeyPress= {(e)=>enterkey(e)} />
+          <TextField id="outlined-basic" label="Email" variant="outlined" value={email} onChange={(event) => setEmail(event.target.value)} onKeyPress= {(e)=>enterkey(e)}/>
           <Button variant="contained" color="success" onClick= {addData}>
             <PersonAddAlt1Icon />
           </Button>
